@@ -57,3 +57,22 @@ The "React Todo App with Local Storage" project offers a valuable task managemen
 The provided search results offer insights into building a React Todo App with local storage, including code examples, GitHub repositories, and a tutorial. These resources can be helpful for developers looking to implement local storage in their React-based task management applications.
 
 # Screenshots:
+
+**Home Page:**
+![](./src/assets/home-page.png)
+**Add new todo:**
+![](./src/assets/add-new-todo.png)
+**Edit todo:**
+![](./src/assets/edit-task.png)
+**Todo deletion:**
+![](./src/assets/task-deletion.png)
+**Complete status for todo:**
+![](./src/assets/complete-task.png)
+**Search functionality:**
+![](./src/assets/search.png)
+**User option:**
+![](./src/assets/user-option.png)
+**Todo details page:**
+![](./src/assets/todo-details.png)
+**No task found:**
+![](./src/assets/no-task.png)
