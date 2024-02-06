@@ -157,6 +157,7 @@ const EditTodo = () => {
         check: edit.check,
         currentTime: edit.currentTime,
         catagory: updatedCatagories,
+        priority: edit.priority,
       });
     } else {
       if (selectedCatagory.length < 3) {
@@ -169,6 +170,7 @@ const EditTodo = () => {
           check: edit.check,
           currentTime: edit.currentTime,
           catagory: [...selectedCatagory, catagoryObj],
+          priority: edit.priority,
         });
       } else {
         setMaxSelectedError(true);
@@ -183,6 +185,7 @@ const EditTodo = () => {
           check: edit.check,
           currentTime: edit.currentTime,
           catagory: [...selectedCatagory],
+          priority: edit.priority,
         });
       }
     }
