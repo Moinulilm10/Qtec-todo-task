@@ -65,6 +65,7 @@ const EditTodo = () => {
       check: edit.check,
       currentTime: edit.currentTime,
       catagory: edit.catagory,
+      priority: edit.priority,
     });
 
     if (description.length >= 200) {
