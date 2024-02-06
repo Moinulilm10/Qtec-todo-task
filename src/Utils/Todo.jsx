@@ -33,11 +33,6 @@ const Todo = ({
   });
 
   // Determine background color based on priority
-  // const priorityColors = {
-  //   high: "bg-green-600",
-  //   medium: "bg-yellow-500",
-  //   low: "bg-red-500",
-  // };
   const priorityColor = (priority) => {
     switch (priority) {
       case "high":
