@@ -5,21 +5,26 @@ import EditTodo from "./components/EditTodo";
 import Home from "./components/Home";
 import PageNotFound from "./components/PageNotFound";
 import TaskDetails from "./components/TaskDetails";
+import { DataProvider } from "./context/DataContext";
 
 function App() {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Home />} />
+      <DataProvider>
+        <div>
+          <Routes>
+            <Route path="/" element={<Home />} />
 
-        <Route path="/addTodo" element={<AddTodo />} />
+            <Route path="/addTodo" element={<AddTodo />} />
 
-        <Route path="/edit" element={<EditTodo />} />
+            <Route path="/edit" element={<EditTodo />} />
 
-        <Route path="/todo/:id" element={<TaskDetails />} />
+            <Route path="/todo/:id" element={<TaskDetails />} />
 
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </div>
+      </DataProvider>
     </>
   );
 }
