@@ -4,6 +4,7 @@ import { RxPlus } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
 import DisplayTodos from "../Utils/DisplayTodos";
 import Greeting from "../Utils/Greeting";
+import SortBar from "../Utils/SortTodos";
 import DataContext from "../context/DataContext";
 
 const Home = () => {
@@ -23,6 +24,8 @@ const Home = () => {
     setTaskDetails,
   } = useContext(DataContext);
 
+  console.log("🚀 ~ Home ~ data:", data);
+
   const navigate = useNavigate();
 
   return (
@@ -31,14 +34,20 @@ const Home = () => {
         <div>
           <Greeting />
 
-          <div className="flex items-center justify-center gap-16">
-            <h1 className="font-bold text-3xl text-[#fff]">Add Task </h1>
+          <div className="flex items-center justify-center gap-24 max-sm:gap-[58px]">
+            <div>
+              <h1 className="font-bold text-3xl max-sm:text-base text-[#fff]">
+                Add Task 👉
+              </h1>
+            </div>
             <div
               onClick={() => navigate("/addTodo")}
               className="w-16 h-16 max-sm:w-14 max-sm:h-14 cursor-pointer bg-white grid place-items-center rounded-full left-[50%] -translate-x-[50%]"
             >
               <RxPlus className=" text-4xl max-sm:text-3xl plusIcon" />
             </div>
+
+            <SortBar />
           </div>
 
           <DisplayTodos

@@ -16,7 +16,7 @@ const EditTodo = () => {
     setEditNotification,
     index,
   } = useContext(DataContext);
-  console.log("🚀 ~ EditTodo ~ data:", data);
+  // console.log("🚀 ~ EditTodo ~ data:", data);
 
   const [emptyInputError, setEmptyInputError] = useState(false);
 

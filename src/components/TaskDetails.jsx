@@ -7,7 +7,7 @@ const TaskDetails = () => {
   const items = JSON.parse(localStorage.getItem("todoItems"));
 
   const details = items.find((val) => val.id.toString() === id);
-  console.log("🚀 ~ TaskDetails ~ details:", details);
+  // console.log("🚀 ~ TaskDetails ~ details:", details);
 
   if (!details) {
     return <PageNotFound />;
