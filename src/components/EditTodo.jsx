@@ -138,7 +138,7 @@ const EditTodo = () => {
     } else {
       return;
     }
-  }, []);
+  }, [edit.catagory, edit.id]);
 
   const handleSelected = (catagoryObj) => {
     const isCategorySelected = selectedCatagory.filter(
