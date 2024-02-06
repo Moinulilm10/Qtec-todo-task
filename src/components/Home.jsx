@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import { RxPlus } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
@@ -24,9 +24,43 @@ const Home = () => {
     setTaskDetails,
   } = useContext(DataContext);
 
-  console.log("🚀 ~ Home ~ data:", data);
-
   const navigate = useNavigate();
+
+  const [sortCriteria, setSortCriteria] = useState("");
+
+  // Function to handle sorting
+  const handleSort = (criteria) => {
+    setSortCriteria(criteria);
+    // Implement sorting logic here
+    let sortedData = [...data];
+    switch (criteria) {
+      case "low":
+      case "medium":
+      case "high":
+        sortedData.sort((a, b) => a.priority.localeCompare(b.priority));
+        break;
+      case "lowToHigh":
+        sortedData.sort((a, b) => {
+          // First, sort by priority (low -> medium -> high)
+          const priorityComparison = a.priority.localeCompare(b.priority);
+          // If priorities are the same, sort by the creation time
+          if (priorityComparison === 0) {
+            return new Date(a.currentTime) - new Date(b.currentTime);
+          }
+          return priorityComparison;
+        });
+        break;
+      case "highToLow":
+        sortedData.sort((a, b) => b.priority.localeCompare(a.priority));
+        break;
+      default:
+        // No sorting
+        break;
+    }
+    setData(sortedData);
+  };
+
+  console.log("🚀 ~ Home ~ data:", data);
 
   return (
     <div className=" w-full relative min-h-screen pb-60 bg-gradient-to-r from-purple-700 to-purple-500">
@@ -47,7 +81,7 @@ const Home = () => {
               <RxPlus className=" text-4xl max-sm:text-3xl plusIcon" />
             </div>
 
-            <SortBar />
+            <SortBar onSort={handleSort} />
           </div>
 
           <DisplayTodos
