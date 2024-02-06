@@ -72,6 +72,7 @@ const TasksOptions = ({
       check: false,
       currentTime: `${date}/${month}/${year} ,${hours}:${minutes} ${amOrPm}`,
       catagory: val.catagory,
+      priority: val.priority,
     };
 
     setData([...data, copyObj]);
@@ -99,6 +100,7 @@ const TasksOptions = ({
               check: val.check,
               currentTime: val.currentTime,
               catagory: val.catagory,
+              priority: val.priority,
             });
           }}
         >

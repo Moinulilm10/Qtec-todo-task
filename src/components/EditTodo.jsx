@@ -1,9 +1,9 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp, IoIosCloseCircle } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import { catagory } from "../Data/Data";
 import EditCatagoryBtn from "../Utils/EditCatagoryBtn";
 import TopNav from "../Utils/TopNav";
-import { catagory } from "../constants/Data";
 import DataContext from "../context/DataContext";
 
 const EditTodo = () => {
@@ -16,6 +16,7 @@ const EditTodo = () => {
     setEditNotification,
     index,
   } = useContext(DataContext);
+  console.log("🚀 ~ EditTodo ~ data:", data);
 
   const [emptyInputError, setEmptyInputError] = useState(false);
 
@@ -25,6 +26,8 @@ const EditTodo = () => {
 
   const [selectedCatagory, setSelectedCatagory] = useState([]);
   const [maxSelectedError, setMaxSelectedError] = useState(false);
+
+  const [priority, setPriority] = useState(edit.priority); // Initialize priority state with the current task's priority or 'medium'
 
   const navigate = useNavigate("");
 
@@ -43,6 +46,7 @@ const EditTodo = () => {
       check: edit.check,
       currentTime: edit.currentTime,
       catagory: edit.catagory,
+      priority: edit.priority,
     });
 
     if (title.length >= 35) {
@@ -70,6 +74,14 @@ const EditTodo = () => {
     } else {
       setDescriptionCountError("");
     }
+  };
+
+  const handleEditPriority = (e) => {
+    setPriority(e.target.value);
+    setEdit({
+      ...edit,
+      priority: e.target.value,
+    });
   };
 
   const handleEditSubmit = (e, index) => {
@@ -183,6 +195,7 @@ const EditTodo = () => {
 
           <div className="mt-10">
             <form className="max-w-[600px] m-auto">
+              {/* Edit title name  */}
               <div>
                 <label
                   className=" text-sm max-sm:text-sm text-purple-200"
@@ -204,6 +217,7 @@ const EditTodo = () => {
                 </p>
               </div>
 
+              {/* Edit description name  */}
               <div className=" mt-7">
                 <label
                   className="text-sm max-sm:text-sm text-purple-200"
@@ -223,6 +237,24 @@ const EditTodo = () => {
                 </p>
               </div>
 
+              {/* Edit priority option  */}
+              <div className="mt-7">
+                <label className="text-sm max-sm:text-sm text-purple-200">
+                  Priority
+                </label>
+                <select
+                  value={priority}
+                  onChange={handleEditPriority}
+                  className="w-full h-14 max-sm:h-12 rounded-lg p-4 text-base mt-1 outline-none"
+                >
+                  <option value="">Select Priority</option>
+                  <option value="high">High</option>
+                  <option value="medium">Medium</option>
+                  <option value="low">Low</option>
+                </select>
+              </div>
+
+              {/* Edit category options  */}
               <div ref={catagoryRef}>
                 <label className="text-sm text-purple-200">Category</label>
 

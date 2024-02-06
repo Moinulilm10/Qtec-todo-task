@@ -13,7 +13,6 @@ const Todo = ({
   setDeleteNotification,
   setTaskDetails,
 }) => {
-  console.log("🚀 ~ val:", val);
   const [openOptions, setOpenOptions] = useState(false);
 
   const menuRef = useRef();
