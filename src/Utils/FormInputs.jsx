@@ -240,7 +240,7 @@ const FormInputs = ({
           <select
             value={selectedPriority}
             onChange={(e) => setSelectedPriority(e.target.value)}
-            className="w-full h-12 max-sm:h-10 rounded-xl p-4 text-base mt-1 outline-none"
+            className="w-full h-12 max-sm:h-10 rounded-xl p-3 max-sm:p-2 text-base outline-none"
           >
             <option value="">Select Priority</option>
             <option value="high">High</option>
