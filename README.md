@@ -25,6 +25,10 @@ The "React Todo List with Local Storage" project is a web-based task management 
 
 - Users can easily create new tasks, providing a title and optional details for each task.
 
+**Task Creation based on priority⚡:**
+
+- Users can set priority for their tasks. Each priority have their own status color.
+
 **Task Status✉️:**
 
 - Tasks can be marked as either complete or incomplete, allowing users to monitor their progress.
