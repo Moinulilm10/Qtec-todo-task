@@ -13,6 +13,7 @@ const Todo = ({
   setDeleteNotification,
   setTaskDetails,
 }) => {
+  console.log("🚀 ~ val:", val);
   const [openOptions, setOpenOptions] = useState(false);
 
   const menuRef = useRef();
@@ -31,8 +32,32 @@ const Todo = ({
     };
   });
 
+  // Determine background color based on priority
+  // const priorityColors = {
+  //   high: "bg-green-600",
+  //   medium: "bg-yellow-500",
+  //   low: "bg-red-500",
+  // };
+  const priorityColor = (priority) => {
+    switch (priority) {
+      case "high":
+        return "bg-green-600";
+      case "medium":
+        return "bg-yellow-500";
+      case "low":
+        return "bg-red-600";
+      default:
+        return "bg-purple-800";
+    }
+  };
+
   return (
-    <div className="flex justify-between gap-4 max-w-full items-center text-white bg-purple-800 rounded-2xl px-6 py-5 max-sm:px-3">
+    <div
+      className={`flex justify-between gap-4 max-w-full items-center
+     text-white  rounded-2xl px-6 py-5 max-sm:px-3 ${priorityColor(
+       val.priority
+     )}`}
+    >
       {val.check && (
         <div className=" bg-purple-500 p-4 max-sm:p-2 rounded-2xl">
           <FaCheck className=" text-4xl" />
@@ -68,20 +93,28 @@ const Todo = ({
           {val.description}
         </p>
 
-        <div
-          className={`flex gap-3 items-center flex-wrap mt-3 ${
-            !val.catagory.length && "hidden"
-          }`}
-        >
-          {val.catagory.map((c, index) => (
-            <h4
-              className="bg-purple-600 rounded-2xl text-sm max-sm:text-xs px-3 py-1"
-              key={index}
-            >
-              <span className=" text-xl max-sm:text-lg">{c.emoji}</span>{" "}
-              {c.catagory}
+        <div className="flex flex-row gap-24">
+          <div
+            className={`flex gap-3 items-center flex-wrap mt-3 ${
+              !val.catagory.length && "hidden"
+            }`}
+          >
+            {val.catagory.map((c, index) => (
+              <h4
+                className="bg-purple-600 rounded-2xl text-sm max-sm:text-xs px-3 py-1"
+                key={index}
+              >
+                <span className=" text-xl max-sm:text-lg">{c.emoji}</span>{" "}
+                {c.catagory}
+              </h4>
+            ))}
+          </div>
+
+          <div className={"flex gap-3 items-center flex-wrap mt-3"}>
+            <h4 className="bg-purple-600 rounded-2xl text-sm max-sm:text-xs px-3 py-1">
+              {val.priority}
             </h4>
-          ))}
+          </div>
         </div>
       </div>
 
