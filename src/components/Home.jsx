@@ -60,7 +60,7 @@ const Home = () => {
     setData(sortedData);
   };
 
-  console.log("🚀 ~ Home ~ data:", data);
+  // console.log("🚀 ~ Home ~ data:", data);
 
   return (
     <div className=" w-full relative min-h-screen pb-60 bg-gradient-to-r from-purple-700 to-purple-500">
@@ -68,7 +68,7 @@ const Home = () => {
         <div>
           <Greeting />
 
-          <div className="flex items-center justify-center gap-24 max-sm:gap-[58px]">
+          <div className="flex items-center justify-center gap-24 max-sm:gap-[31px]">
             <div>
               <h1 className="font-bold text-3xl max-sm:text-base text-[#fff]">
                 Add Task 👉
@@ -76,7 +76,7 @@ const Home = () => {
             </div>
             <div
               onClick={() => navigate("/addTodo")}
-              className="w-16 h-16 max-sm:w-14 max-sm:h-14 cursor-pointer bg-white grid place-items-center rounded-full left-[50%] -translate-x-[50%]"
+              className="w-16 h-16 max-sm:w-9 max-sm:h-9 cursor-pointer bg-white grid place-items-center rounded-full left-[50%] -translate-x-[50%]"
             >
               <RxPlus className=" text-4xl max-sm:text-3xl plusIcon" />
             </div>
